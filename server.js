@@ -1,5 +1,5 @@
 ///////////////////
-// Dependencies
+// dependencies
 ///////////////////
 const express = require("express");
 const methodOverride = require("method-override");
@@ -10,7 +10,7 @@ require("dotenv").config();
 
 
 ///////////////////
-// Middleware
+// middleware
 ///////////////////
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
@@ -18,14 +18,14 @@ app.use(methodOverride("_method"));
 
 
 ///////////////////
-// Routers
+// routers
 ///////////////////
 const logsController = require("./controllers/logs.js");
 app.use("/logs", logsController);
 
 
 ///////////////////
-// Port
+// port
 ///////////////////
 const PORT = process.env.PORT;
 
@@ -33,7 +33,7 @@ console.log(PORT);
 
 
 ///////////////////
-// Database
+// database
 ///////////////////
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -43,7 +43,7 @@ mongoose.connect(MONGODB_URI, {useNewUrlParser:true, useUnifiedTopology:true, us
 
 
 ///////////////////
-// Listener
+// listener
 ///////////////////
 app.listen(PORT, () => {
   console.log("listening");

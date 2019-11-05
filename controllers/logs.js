@@ -7,10 +7,9 @@ const Log = require("../models/logs.js");
 
 
 ///////////////////
-// index
-///////////////////
 // seed
-router.get("/logs/seed", (req, res) => {
+///////////////////
+router.get("/seed", (req, res) => {
   Log.create([
     {
       week:  1,
@@ -80,9 +79,11 @@ router.get("/logs/seed", (req, res) => {
   })
 })
 
+///////////////////
 // index
-router.get("/logs", (req, res) => {
-  Log.find({}, (erro, allLogs) => {
+///////////////////
+router.get("/", (req, res) => {
+  Log.find({}, (error, allLogs) => {
     res.render("logs/index.ejs", {logs: allLogs});
   })
 })
