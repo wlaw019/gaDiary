@@ -1,0 +1,21 @@
+.container{
+  text-align: center;
+}
+
+.row{
+  justify-content: space-around;
+  align-items: center;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px 0;
+}
+legend {
+  padding: 0px 10px;
+  font-family: 'Oswald';
+  font-weight: 500;
+  color: #735066;
+  width: auto;
+}

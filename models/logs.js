@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // new log schema
 const logSchema = new mongoose.Schema({
     week:  Number,
-    weekday:  String,
+    weekday:  Number,
     title:  String,
     descriptions:  String,
     feeling:  Number,
