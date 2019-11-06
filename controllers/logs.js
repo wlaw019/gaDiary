@@ -152,6 +152,10 @@ router.get("/", (req, res) => {
   }).sort({week:1}).sort({weekday:1})
 })
 
+router.get("/test",(req, res) => {
+  res.send("hello");
+})
+
 
 
 module.exports = router;
