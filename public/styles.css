@@ -98,6 +98,23 @@ input[type="submit"]:hover {
 }
 
 textarea {
- resize: none;
+ resize: vertical;
  height: 75px;
+}
+
+.btn-feeling{
+  display: inline-block;
+  /* box-sizing: border-box; */
+  width: 20px;
+  /* height: 40px; */
+  background: grey;
+  color: white;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+p{
+  display: inline;
 }
