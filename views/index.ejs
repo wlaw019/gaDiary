@@ -16,18 +16,31 @@
         <a href="#">Log Out</a>
       </nav>
       <h1>My GA Diary</h1>
-      <% for (var k = 1; k < 3; k++) {
+      <% const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; }));
+      <!-- console.log(highestWeek); -->
+       for (var k = 1; k <= highestWeek; k++) {
         let weeklyLogs = logs.filter(obj => {
           return obj.week === k;
         });
-        console.log(weeklyLogs);%>
+
+        let weeklyHrs = 40;
+        let avgFeeling = 0;
+        weeklyLogs.forEach((obj) => {
+          weeklyHrs += obj["homeworkHrs"];
+          avgFeeling += (obj["feeling"]*obj["homeworkHrs"]);
+        })
+
+        avgFeeling = Math.ceil(avgFeeling/(weeklyHrs-40));
+
+
+        %>
       <fieldset>
 
         <legend>Week <%=k%></legend>
         <div class="row">
         <% for (var i = 0; i < weeklyLogs.length; i++) { %>
           <div class="card">
-            <%=weeklyLogs[i].title;%>
+            <%=weeklyLogs[i].title%>
 
             <% switch (weeklyLogs[i].feeling){
               case 1: %>
@@ -69,10 +82,15 @@
                 Sun<%;
             } %>
 
-
           </div>
 
         <% } %>
+        </div>
+
+        <div class="row weeklystat">
+
+          <p>Total working hours: <%=weeklyHrs%> hrs week</p>
+          <p>Weighted average feeling: <%=avgFeeling%> =></p>
         </div>
 
       </fieldset>

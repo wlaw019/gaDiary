@@ -154,6 +154,9 @@ router.get("/", (req, res) => {
 //   res.send("hello");
 // })
 
+// let weeklyHrs = weeklyLogs.reduce((accumulator, currentValue) => {
+//   accumulator.homeworkHrs + currentValue.homeworkHrs;
+// })
 
 
 
