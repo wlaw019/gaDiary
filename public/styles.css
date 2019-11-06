@@ -26,11 +26,30 @@ body {
 }
 .sidebar {
   width: 50%;
-  background: url('img/smile.png');
+  /* background: url('img/smile.png');
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-content: center; */
+  align-items: center;
 }
+
+.showcard{
+  text-align: center;
+  align-items: center;
+  box-shadow: 10px 5px 5px grey;
+  background-color: lightblue;
+  width: 100px;
+  height: 120px;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .edit-entry {
   width: 50%;
   background: #f9f9f9;
@@ -99,7 +118,7 @@ input[type="submit"]:hover {
 
 textarea {
  resize: vertical;
- height: 75px;
+ min-height: 75px;
 }
 
 .btn-feeling{
