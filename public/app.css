@@ -7,6 +7,18 @@
   align-items: center;
 }
 
+.showpage{
+  width: 100px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card-descriptions{
+  margin-top: 16px;
+}
+
 .card{
   text-align: center;
   align-items: center;
@@ -14,6 +26,8 @@
   background-color: lightblue;
   min-width: 100px;
 }
+
+
 
 .weeklystat{
   padding-top: 20px;
@@ -28,10 +42,19 @@ fieldset {
   padding: 20px 20px 0 20px;
   margin: 20px 0;
 }
+
 legend {
   padding: 0px 10px;
   font-family: 'Oswald';
   font-weight: 500;
   color: #735066;
   width: auto;
+}
+
+.form-group{
+  text-align: left;
+}
+
+a:hover{
+  text-decoration: none;
 }

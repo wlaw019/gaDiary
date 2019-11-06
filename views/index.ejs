@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/app.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
+
   </head>
   <body>
     <div class="container">
@@ -30,15 +31,13 @@
           avgFeeling += (obj["feeling"]*obj["homeworkHrs"]);
         })
 
-        avgFeeling = Math.ceil(avgFeeling/(weeklyHrs-40));
+        avgFeeling = Math.ceil(avgFeeling/(weeklyHrs-40));%>
 
-
-        %>
       <fieldset>
-
         <legend>Week <%=k%></legend>
         <div class="row">
         <% for (var i = 0; i < weeklyLogs.length; i++) { %>
+          <a href="/logs/<%=weeklyLogs[i].id%>">
           <div class="card">
             <%=weeklyLogs[i].title%>
 
@@ -57,9 +56,9 @@
                 break;
               case 5: %>
                 <img src="/img/party.png" alt="party image"><%;
-            } %>
+            }
 
-            <% switch (weeklyLogs[i].weekday){
+             switch (weeklyLogs[i].weekday){
               case 1: %>
                 Mon<%;
                  break;
@@ -83,6 +82,7 @@
             } %>
 
           </div>
+          </a>
 
         <% } %>
         </div>
@@ -90,17 +90,28 @@
         <div class="row weeklystat">
 
           <p>Total working hours: <%=weeklyHrs%> hrs week</p>
-          <p>Weighted average feeling: <%=avgFeeling%> =></p>
+          <p>Weighted average feeling: <%=avgFeeling%> =>
+            <% switch (avgFeeling){
+              case 1: %>
+                What have I done with my life?<%;
+                 break;
+              case 2: %>
+                I'm lost<%;
+                break;
+              case 3: %>
+                Hanging in there<%;
+                break;
+              case 4: %>
+                Perfect<%;
+                break;
+              case 5: %>
+                I'm bored, go faster<%;
+            } %>
+          </p>
         </div>
 
       </fieldset>
-  <% } %>
-
-
-
-
-
-
+      <% } %>
 
     </div>
   </body>

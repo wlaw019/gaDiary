@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Week <%=log.week%>:
+        <%switch (log.weekday){
+         case 1: %>
+           Mon<%;
+            break;
+         case 2: %>
+           Tue<%;
+           break;
+         case 3: %>
+           Wed<%;
+           break;
+         case 4: %>
+           Thu<%;
+           break;
+         case 5: %>
+           Fri<%;
+           break;
+         case 6: %>
+           Sat<%;
+           break;
+         case 7: %>
+           Sun<%;
+       } %>
+      </h1>
+      <h2><%=log.title%></h2>
+      <p><%=log.descriptions%></p>
+      <div class="card showpage">
+      <% switch (log.feeling){
+        case 1: %>
+          <img src="/img/cry.png" alt="cry image"><%;
+           break;
+        case 2: %>
+          <img src="/img/sad.png" alt="sad image"><%;
+          break;
+        case 3: %>
+          <img src="/img/neutral.png" alt="neutral image"><%;
+          break;
+        case 4: %>
+          <img src="/img/smile.png" alt="smile image"><%;
+          break;
+        case 5: %>
+          <img src="/img/party.png" alt="party image"><%;
+      }%>
+      </div>
+      <p class="card-descriptions"><%=log.feeling%>:
+        <% switch (log.feeling){
+          case 1: %>
+            What have I done with my life?<%;
+             break;
+          case 2: %>
+            I'm lost<%;
+            break;
+          case 3: %>
+            Hanging in there<%;
+            break;
+          case 4: %>
+            Perfect<%;
+            break;
+          case 5: %>
+            I'm bored, go faster<%;
+        } %>
+      </p>
+      <% if(log.weekday===6||log.weekday===7){ %>
+        <p><%=log.homeworkHrs%> hrs homework</p>
+      <% } else { %>
+        <p>8 hrs lecture + <%=log.homeworkHrs%> hrs homework</p>
+        <p>=> <%=log.homeworkHrs+8%> hrs work day</p>
+      <% }; %>
+
+
+
+      <div class="form-group">
+        <label class="vent" for="exampleFormControlTextarea3">Vent</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"><%=log.vent%></textarea>
+      </div>
+
+
+    </div>
+  </body>
+</html>

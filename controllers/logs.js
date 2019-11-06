@@ -154,9 +154,18 @@ router.get("/", (req, res) => {
 //   res.send("hello");
 // })
 
-// let weeklyHrs = weeklyLogs.reduce((accumulator, currentValue) => {
-//   accumulator.homeworkHrs + currentValue.homeworkHrs;
-// })
+
+///////////////////
+// show
+///////////////////
+router.get("/:id", (req,res) => {
+  Log.findById(req.params.id, (error, foundLog) => {
+    res.render("show.ejs", {log: foundLog});
+  })
+})
+
+
+
 
 
 
