@@ -121,8 +121,23 @@ textarea {
  min-height: 75px;
 }
 
+.row-feeling{
+  display: flex;
+  justify-content: flex-start;
+  /* align-content: center; */
+  align-items: center;
+}
+
+input[type="checkbox"]{
+  cursor: pointer;
+  width: 5px;
+  margin: 10px;
+  /* display: inline-block; */
+  /* display: inline-block; */
+}
+
 .btn-feeling{
-  display: inline-block;
+  /* display: inline-block; */
   /* box-sizing: border-box; */
   width: 20px;
   /* height: 40px; */
@@ -135,5 +150,5 @@ textarea {
 }
 
 p{
-  display: inline;
+  /* display: inline; */
 }
