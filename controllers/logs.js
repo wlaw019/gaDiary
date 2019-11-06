@@ -146,7 +146,7 @@ router.get("/seed", (req, res) => {
 ///////////////////
 router.get("/", (req, res) => {
   Log.find({}, (error, allLogs) => {
-    res.render("index.ejs", {logs: allLogs});
+    res.render("app/index.ejs", {logs: allLogs});
   }).sort({week:1}).sort({weekday:1})
 })
 
