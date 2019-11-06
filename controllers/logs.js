@@ -146,15 +146,14 @@ router.get("/seed", (req, res) => {
 ///////////////////
 router.get("/", (req, res) => {
   Log.find({}, (error, allLogs) => {
-
-
     res.render("index.ejs", {logs: allLogs});
   }).sort({week:1}).sort({weekday:1})
 })
 
-router.get("/test",(req, res) => {
-  res.send("hello");
-})
+// router.get("/test",(req, res) => {
+//   res.send("hello");
+// })
+
 
 
 

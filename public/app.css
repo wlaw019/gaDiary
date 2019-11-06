@@ -7,6 +7,18 @@
   align-items: center;
 }
 
+.card{
+  text-align: center;
+  align-items: center;
+  box-shadow: 10px 5px 5px grey;
+  background-color: lightblue;
+  min-width: 100px;
+}
+
+img{
+  width: 70px;
+}
+
 fieldset {
   border: 1px solid #ccc;
   padding: 20px;

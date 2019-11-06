@@ -16,17 +16,20 @@
         <a href="#">Log Out</a>
       </nav>
       <h1>My GA Diary</h1>
-
-
+      <% for (var k = 1; k < 3; k++) {
+        let weeklyLogs = logs.filter(obj => {
+          return obj.week === k;
+        });
+        console.log(weeklyLogs);%>
       <fieldset>
 
-        <legend>Week <%=i%></legend>
+        <legend>Week <%=k%></legend>
         <div class="row">
-        <% for (var i = 0; i < logs.length; i++) { %>
+        <% for (var i = 0; i < weeklyLogs.length; i++) { %>
           <div class="card">
-            <%=logs[i].title;%>
+            <%=weeklyLogs[i].title;%>
 
-            <% switch (logs[i].feeling){
+            <% switch (weeklyLogs[i].feeling){
               case 1: %>
                 <img src="/img/cry.png" alt="cry image"><%;
                  break;
@@ -43,14 +46,37 @@
                 <img src="/img/party.png" alt="party image"><%;
             } %>
 
-            <%=logs[i].weekday;%>
+            <% switch (weeklyLogs[i].weekday){
+              case 1: %>
+                Mon<%;
+                 break;
+              case 2: %>
+                Tue<%;
+                break;
+              case 3: %>
+                Wed<%;
+                break;
+              case 4: %>
+                Thu<%;
+                break;
+              case 5: %>
+                Fri<%;
+                break;
+              case 6: %>
+                Sat<%;
+                break;
+              case 7: %>
+                Sun<%;
+            } %>
+
+
           </div>
 
         <% } %>
         </div>
 
       </fieldset>
-
+  <% } %>
 
 
 
