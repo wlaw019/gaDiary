@@ -160,7 +160,7 @@ router.get("/", (req, res) => {
 ///////////////////
 router.get("/:id", (req,res) => {
   Log.findById(req.params.id, (error, foundLog) => {
-    res.render("show.ejs", {log: foundLog});
+    res.render("app/show.ejs", {log: foundLog});
   })
 })
 
