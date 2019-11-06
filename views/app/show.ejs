@@ -35,7 +35,7 @@
       </h1>
       <h2><%=log.title%></h2>
       <p><%=log.descriptions%></p>
-      <div class="card showpage">
+      <div class="card showcard">
       <% switch (log.feeling){
         case 1: %>
           <img src="/img/cry.png" alt="cry image"><%;
@@ -84,6 +84,8 @@
         <label class="vent" for="exampleFormControlTextarea3">Vent</label>
         <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"><%=log.vent%></textarea>
       </div>
+
+      <a href="/logs/<%=log.id%>/edit">EDIT</a>
 
 
     </div>

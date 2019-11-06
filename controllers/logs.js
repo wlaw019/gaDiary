@@ -156,6 +156,18 @@ router.get("/", (req, res) => {
 
 
 ///////////////////
+// edit
+///////////////////
+router.get("/:id/edit", (req, res) => {
+  Log.findById(req.params.id, (error, foundLog) => {
+    res.render("app/edit.ejs", {log: foundLog});
+  })
+})
+
+
+
+
+///////////////////
 // show
 ///////////////////
 router.get("/:id", (req,res) => {
