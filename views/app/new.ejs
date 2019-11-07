@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+          <div class="sidebar">
+            <div class="showcard cry">
+              <img src="/img/cry.png" alt="cry image">
+            </div>
+            <div class="showcard sad">
+              <img src="/img/sad.png" alt="sad image">
+            </div>
+            <div class="showcard neutral">
+              <img src="/img/neutral.png" alt="neutral image">
+            </div>
+            <div class="showcard smile">
+              <img src="/img/smile.png" alt="smile image">
+            </div>
+            <div class="showcard party">
+              <img src="/img/party.png" alt="party image">
+            </div>
+          </div>
+
+          <div class="edit-entry">
+            <h1>NEW ENTRY</h1>
+            <form action="/logs" method="POST">
+
+              <fieldset>
+                <legend>DAY INFORMATION</legend>
+
+                  <label for ="week">WEEK</label>
+                  <input type="number" name="week" placeholder="1"/>
+
+                  <label for="weekday">WEEKDAY</label>
+                  <input type="number" name="weekday" placeholder="3"/>
+
+                  <label for="title">TITLE</label>
+                  <input type="text" name="title" placeholder="Loops"/>
+
+                  <label for="descriptions">DESCRIPTIONS</label>
+                  <input type="text" name="descriptions" placeholder="Enter text here"/>
+
+                  <label for="homeworkHrs">HOMEWORK HOURS</label>
+                  <input type="number" name="homeworkHrs" placeholder="4"/>
+              </fieldset>
+
+              <fieldset>
+                <legend>FEELING</legend>
+                  <label for="feeling">HOW ARE YOU FEELING ABOUT THE CONTENT?</label>
+
+                      <div class="row-feeling">
+                        <input type="checkbox" name="feeling1">
+                        <div class="btn-feeling">1</div>
+                        <p>What have I done with my life?</p>
+                      </div>
+
+                      <div class="row-feeling">
+                        <input type="checkbox" name="feeling2">
+                        <div class="btn-feeling">2</div>
+                        <p>I'm lost!</p>
+                      </div>
+
+                      <div class="row-feeling">
+                        <input type="checkbox" name="feeling3">
+                        <div class="btn-feeling">3</div>
+                        <p>Hanging in there...</p>
+                      </div>
+
+                      <div class="row-feeling">
+                        <input type="checkbox" name="feeling4">
+                        <div class="btn-feeling">4</div>
+                        <p>Perfect</p>
+                      </div>
+
+                      <div class="row-feeling">
+                        <input type="checkbox" name="feeling5">
+                        <div class="btn-feeling">5</div>
+                        <p>I'm bored, go faster</p>
+                      </div>
+
+                      <script>
+                        $('input:checkbox').on("click",function() {
+                          $('input[type="checkbox"]').not(this).prop('checked', false);
+
+                          $(".showcard").fadeTo("fast",0.33);
+
+                          switch ($(this).attr('name')){
+                            case "feeling1":
+                              $(".cry").fadeTo("fast",1);
+                               break;
+                            case "feeling2":
+                              $(".sad").fadeTo("fast",1);
+                              break;
+                            case "feeling3":
+                              $(".neutral").fadeTo("fast",1);
+                              break;
+                            case "feeling4":
+                              $(".smile").fadeTo("fast",1);
+                              break;
+                            case "feeling5":
+                              $(".party").fadeTo("fast",1);
+                          }
+                        })
+
+                      </script>
+              </fieldset>
+
+              <fieldset>
+                <legend>DIARY</legend>
+                  <label for="vent">VENT</label>
+                  <textarea name="vent" placeholder="Enter text here"></textarea>
+              </fieldset>
+
+              <input type="submit" value="SUBMIT">
+            </form>
+          </div>
+        </div>
+
+  </body>
+</html>

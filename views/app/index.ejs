@@ -17,6 +17,7 @@
         <a href="#">Log Out</a>
       </nav>
       <h1>My GA Diary</h1>
+      <a href="/logs/new">NEW ENTRY</a>
       <% const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; }));
       <!-- console.log(highestWeek); -->
        for (var k = 1; k <= highestWeek; k++) {
@@ -24,14 +25,26 @@
           return obj.week === k;
         });
 
-        let weeklyHrs = 40;
+        let weeklyHrs = 0;
         let avgFeeling = 0;
+
         weeklyLogs.forEach((obj) => {
-          weeklyHrs += obj["homeworkHrs"];
-          avgFeeling += (obj["feeling"]*obj["homeworkHrs"]);
+          if(obj["weekday"===6]&&obj["weekday"===7]){
+            weeklyHrs += obj["homeworkHrs"];
+          } else {
+            weeklyHrs += obj["homeworkHrs"]+8;
+          }
+
+
+          if(obj["weekday"===6]&&obj["weekday"===7]){
+            avgFeeling += obj["feeling"]*obj["homeworkHrs"];
+          } else {
+            avgFeeling += obj["feeling"]*(obj["homeworkHrs"]+8);
+          }
+
         })
 
-        avgFeeling = Math.ceil(avgFeeling/(weeklyHrs-40));%>
+        avgFeeling = Math.round(avgFeeling/weeklyHrs);%>
 
       <fieldset>
         <legend>Week <%=k%></legend>

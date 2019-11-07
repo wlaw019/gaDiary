@@ -198,6 +198,49 @@ router.put("/:id", (req, res) => {
 
 
 ///////////////////
+// new
+///////////////////
+router.get("/new", (req, res) => {
+  res.render("app/new.ejs");
+})
+
+
+///////////////////
+// create
+///////////////////
+router.post("/", (req, res) => {
+  if (req.body.feeling1==="on") {
+    req.body.feeling=1;
+  } else if (req.body.feeling2==="on") {
+    req.body.feeling=2;
+  } else if (req.body.feeling3==="on") {
+    req.body.feeling=3;
+  } else if (req.body.feeling4==="on") {
+    req.body.feeling=4;
+  } else if (req.body.feeling5==="on") {
+    req.body.feeling=5;
+  }
+
+  let newLog = {
+    week:  req.body.week,
+    weekday:  req.body.weekday,
+    title:  req.body.title,
+    descriptions:  req.body.descriptions,
+    feeling:  req.body.feeling,
+    homeworkHrs:  req.body.homeworkHrs,
+    vent:  req.body.vent
+  }
+
+  Log.create(newLog, (error, createdLog) => {
+    res.redirect("/logs");
+  })
+})
+
+
+
+
+
+///////////////////
 // show
 ///////////////////
 router.get("/:id", (req,res) => {
