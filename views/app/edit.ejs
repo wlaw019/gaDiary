@@ -56,12 +56,30 @@
 
               <fieldset>
                 <legend>DAY INFORMATION</legend>
+                  <div class="row">
+                    <div class="row-block">
+                      <label for ="week">WEEK</label>
+                      <input type="number" name="week" value="<%=log.week%>"/>
+                    </div>
 
-                  <label for ="week">WEEK</label>
-                  <input type="number" name="week" value="<%=log.week%>"/>
+                    <div class="row-block">
+                      <label for="weekday">WEEKDAY</label>
+                      <input type="number" name="weekday" value="<%=log.weekday%>"/>
+                    </div>
+                  </div>
 
-                  <label for="weekday">WEEKDAY</label>
-                  <input type="number" name="weekday" value="<%=log.weekday%>"/>
+                  <div class="row">
+                    <div class="row-block">
+                      <label for="classHrs">CLASS HOURS</label>
+                      <input type="number" name="classHrs" value="<%=log.homeworkHrs%>"/>
+                    </div>
+
+                    <div class="row-block">
+                      <label for="homeworkHrs">HOMEWORK HOURS</label>
+                      <input type="number" name="homeworkHrs" value="<%=log.homeworkHrs%>"/>
+                    </div>
+                  </div>
+
 
                   <label for="title">TITLE</label>
                   <input type="text" name="title" value="<%=log.title%>"/>
@@ -69,8 +87,7 @@
                   <label for="descriptions">DESCRIPTIONS</label>
                   <input type="text" name="descriptions" value="<%=log.descriptions%>"/>
 
-                  <label for="homeworkHrs">HOMEWORK HOURS</label>
-                  <input type="number" name="homeworkHrs" value="<%=log.homeworkHrs%>"/>
+
               </fieldset>
 
               <fieldset>

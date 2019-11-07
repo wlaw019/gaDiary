@@ -149,6 +149,11 @@ input[type="checkbox"]{
   border-radius: 5px;
 }
 
-p{
-  /* display: inline; */
+.row{
+  display: flex;
+  justify-content: space-between;
+}
+.row-block{
+  display: block;
+  flex-basis: 48%;
 }
