@@ -71,30 +71,19 @@
               </fieldset>
 
               <fieldset>
-                <script>
-                  const calcFeeling = () => {
-                    $('input:checkbox').removeAttr('checked');
-                    // $(this).val('check all');
-                    // $(".showcard").fadeTo("fast",0.33);
-                    // $(".cry").fadeTo("fast",1);
-                    console.log("Hi");
-                  }
-                </script>
+
 
                 <legend>FEELING</legend>
                   <label for="feeling">HOW ARE YOU FEELING ABOUT THE CONTENT?</label>
 
+
+
                       <div class="row-feeling">
-                        <input type="checkbox" name="feeling1" onclick="calcFeeling"
+                        <input type="checkbox" name="feeling1"
                         <% if(log.feeling === 1){ %>
                             checked
                         <% } %>
-
                         >
-
-
-
-
                         <div class="btn-feeling">1</div>
                         <p>What have I done with my life?</p>
                       </div>
@@ -105,7 +94,6 @@
                             checked
                         <% } %>
                         >
-
                         <div class="btn-feeling">2</div>
                         <p>I'm lost!</p>
                       </div>
@@ -116,7 +104,6 @@
                             checked
                         <% } %>
                         >
-
                         <div class="btn-feeling">3</div>
                         <p>Hanging in there...</p>
                       </div>
@@ -127,7 +114,6 @@
                             checked
                         <% } %>
                         >
-
                         <div class="btn-feeling">4</div>
                         <p>Perfect</p>
                       </div>
@@ -138,70 +124,45 @@
                             checked
                         <% } %>
                         >
-
                         <div class="btn-feeling">5</div>
                         <p>I'm bored, go faster</p>
                       </div>
 
                       <script>
+                        $('input:checkbox').on("click",function() {
+                          $('input[type="checkbox"]').not(this).prop('checked', false);
+                          // $('input:checkbox').on("click",function() {
+                          //   $('input[type="checkbox"]').not(this).removeAttr('checked');
+                          // })
+                          //
+                          // $('input:checkbox').on("click",() => {
+                          //   $('input[type="checkbox"]').not(this).prop('checked', false);
+                          // })
 
+                          // $(document).on('click', 'input[type="checkbox"]', function() {
+                          //   $('input[type="checkbox"]').not(this).prop('checked', false);
+                          // });
+                          $(".showcard").fadeTo("fast",0.33);
 
-
+                          switch ($(this).attr('name')){
+                            case "feeling1":
+                              $(".cry").fadeTo("fast",1);
+                               break;
+                            case "feeling2":
+                              $(".sad").fadeTo("fast",1);
+                              break;
+                            case "feeling3":
+                              $(".neutral").fadeTo("fast",1);
+                              break;
+                            case "feeling4":
+                              $(".smile").fadeTo("fast",1);
+                              break;
+                            case "feeling5":
+                              $(".party").fadeTo("fast",1);
+                          }
+                        })
 
                       </script>
-
-
-
-
-
-
-
-
-
-
-
-                  <!-- <div class="btn-feeling btn-cry">1</div><p>What have I done with my life?</p><br/>
-                  <div class="btn-feeling btn-sad">2</div><p>I'm lost!</p><br/>
-                  <div class="btn-feeling btn-neutral">3</div><p>Hanging in there...</p><br/>
-                  <div class="btn-feeling btn-smile">4</div><p>Perfect</p><br/>
-                  <div class="btn-feeling btn-party">5</div><p>I'm bored, go faster</p> -->
-
-                  <!-- <script>
-                    $(".btn-feeling").fadeTo("fast",0.33);
-
-                    switch (<%=log.feeling%>){
-                      case 1:
-                        $(".btn-cry").fadeTo("fast",1);
-                         break;
-                      case 2:
-                        $(".btn-sad").fadeTo("fast",1);
-                        break;
-                      case 3:
-                        $(".btn-neutral").fadeTo("fast",1);
-                        break;
-                      case 4:
-                        $(".btn-smile").fadeTo("fast",1);
-                        break;
-                      case 5:
-                        $(".btn-party").fadeTo("fast",1);
-                    }
-
-                    $(".btn-cry").on("click", () => {
-                      $(".btn-feeling").fadeTo("fast",0.33);
-                      $(".btn-cry").fadeTo("fast",1);
-                      $(".showcard").fadeTo("fast",0.33);
-                      $(".cry").fadeTo("fast",1);
-                      log.feeling = 1;
-                      console.log(log);
-
-                    })
-
-                  </script> -->
-
-
-
-
-
               </fieldset>
 
               <fieldset>
