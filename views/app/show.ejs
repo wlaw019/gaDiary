@@ -71,13 +71,9 @@
             I'm bored, go faster<%;
         } %>
       </p>
-      <% if(log.weekday===6||log.weekday===7){ %>
-        <p><%=log.homeworkHrs%> hrs homework</p>
-      <% } else { %>
-        <p>8 hrs lecture + <%=log.homeworkHrs%> hrs homework</p>
-        <p>=> <%=log.homeworkHrs+8%> hrs work day</p>
-      <% }; %>
 
+        <p><%=log.classHrs%> hrs class + <%=log.homeworkHrs%> hrs homework</p>
+        <p>=> <%=log.classHrs+log.homeworkHrs%> hrs work day</p>
 
 
       <div class="form-group">

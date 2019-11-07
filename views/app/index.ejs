@@ -28,12 +28,9 @@
         let weeklyHrs = 0;
 
         weeklyLogs.forEach((obj) => {
-          if(obj["weekday"]===6||obj["weekday"]===7){
-            weeklyHrs += obj["homeworkHrs"];
-          } else {
-            weeklyHrs += obj["homeworkHrs"]+8;
-          }
+          weeklyHrs += obj["classHrs"]+obj["homeworkHrs"];
         })
+
         weeklyHrsArray.push(weeklyHrs);
 
       }
@@ -111,20 +108,9 @@
         let avgFeeling = 0;
 
         weeklyLogs.forEach((obj) => {
-          if(obj["weekday"]===6||obj["weekday"]===7){
-            weeklyHrs += obj["homeworkHrs"];
-          } else {
-            weeklyHrs += obj["homeworkHrs"]+8;
-          }
+          weeklyHrs += obj["classHrs"]+obj["homeworkHrs"];
 
-
-
-
-          if(obj["weekday"]===6||obj["weekday"]===7){
-            avgFeeling += obj["feeling"]*obj["homeworkHrs"];
-          } else {
-            avgFeeling += obj["feeling"]*(obj["homeworkHrs"]+8);
-          }
+          avgFeeling += obj["feeling"]*(obj["classHrs"]+obj["homeworkHrs"]);
 
         })
 

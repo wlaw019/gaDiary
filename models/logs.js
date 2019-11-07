@@ -8,6 +8,7 @@ const logSchema = new mongoose.Schema({
     title:  String,
     descriptions:  String,
     feeling:  Number,
+    classHrs: Number,
     homeworkHrs:  Number,
     vent:  String
 });
