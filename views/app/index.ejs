@@ -18,6 +18,36 @@
       </nav>
       <h1>My GA Diary</h1>
       <a href="/logs/new">NEW ENTRY</a>
+      <% const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; }));
+      let weeklyHrsArray = [];
+       for (var k = 1; k <= highestWeek; k++) {
+        let weeklyLogs = logs.filter(obj => {
+          return obj.week === k;
+        });
+
+        let weeklyHrs = 0;
+
+        weeklyLogs.forEach((obj) => {
+          if(obj["weekday"]===6||obj["weekday"]===7){
+            weeklyHrs += obj["homeworkHrs"];
+          } else {
+            weeklyHrs += obj["homeworkHrs"]+8;
+          }
+        })
+        weeklyHrsArray.push(weeklyHrs);
+
+      }
+
+      let maxWeek = Math.max.apply(null, weeklyHrsArray);
+      let indexMaxWeek = weeklyHrsArray.indexOf(maxWeek);
+      let minWeek = Math.min.apply(null, weeklyHrsArray);
+      let indexMinWeek = weeklyHrsArray.indexOf(minWeek);
+      %>
+      <p>Best week: <%= indexMinWeek+1 %></p>
+      <p>Worst week: <%= indexMaxWeek+1 %></p>
+
+
+
       <% let feelingCry = logs.filter(obj => {
             return obj.feeling === 1;
           }).length;
@@ -68,8 +98,10 @@
         </div>
       </fieldset>
 
-      <% const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; }));
+      <%
+      <!-- const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; })); -->
       <!-- console.log(highestWeek); -->
+      <!-- let weeklyHrsArray = []; -->
        for (var k = 1; k <= highestWeek; k++) {
         let weeklyLogs = logs.filter(obj => {
           return obj.week === k;
@@ -84,6 +116,8 @@
           } else {
             weeklyHrs += obj["homeworkHrs"]+8;
           }
+
+
 
 
           if(obj["weekday"]===6||obj["weekday"]===7){
@@ -151,7 +185,6 @@
         </div>
 
         <div class="row weeklystat">
-
           <p>Total working hours: <%=weeklyHrs%> hrs week</p>
           <p>Weighted average feeling: <%=avgFeeling%> =>
             <% switch (avgFeeling){
@@ -177,5 +210,6 @@
       <% } %>
 
     </div>
+
   </body>
 </html>
