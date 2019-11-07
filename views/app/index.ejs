@@ -18,6 +18,56 @@
       </nav>
       <h1>My GA Diary</h1>
       <a href="/logs/new">NEW ENTRY</a>
+      <% let feelingCry = logs.filter(obj => {
+            return obj.feeling === 1;
+          }).length;
+
+          let feelingSad = logs.filter(obj => {
+                return obj.feeling === 2;
+          }).length;
+
+          let feelingNeutral = logs.filter(obj => {
+                return obj.feeling === 3;
+          }).length;
+
+          let feelingSmile = logs.filter(obj => {
+                return obj.feeling === 4;
+          }).length;
+
+          let feelingParty = logs.filter(obj => {
+                return obj.feeling === 5;
+          }).length; %>
+
+      <fieldset class="overview">
+        <legend>Overview</legend>
+        <div class="row">
+          <div class="card">
+            <img src="/img/cry.png" alt="cry image">
+            <p><%=feelingCry%> days</p>
+          </div>
+
+          <div class="card">
+            <img src="/img/sad.png" alt="sad image">
+            <p><%=feelingSad%> days</p>
+          </div>
+
+          <div class="card">
+            <img src="/img/neutral.png" alt="neutral image">
+            <p><%=feelingNeutral%> days</p>
+          </div>
+
+          <div class="card">
+            <img src="/img/smile.png" alt="smile image">
+            <p><%=feelingSmile%> days</p>
+          </div>
+
+          <div class="card">
+            <img src="/img/party.png" alt="party image">
+            <p><%=feelingParty%> days</p>
+          </div>
+        </div>
+      </fieldset>
+
       <% const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; }));
       <!-- console.log(highestWeek); -->
        for (var k = 1; k <= highestWeek; k++) {
