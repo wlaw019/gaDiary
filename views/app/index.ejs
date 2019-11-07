@@ -29,14 +29,14 @@
         let avgFeeling = 0;
 
         weeklyLogs.forEach((obj) => {
-          if(obj["weekday"===6]&&obj["weekday"===7]){
+          if(obj["weekday"]===6||obj["weekday"]===7){
             weeklyHrs += obj["homeworkHrs"];
           } else {
             weeklyHrs += obj["homeworkHrs"]+8;
           }
 
 
-          if(obj["weekday"===6]&&obj["weekday"===7]){
+          if(obj["weekday"]===6||obj["weekday"]===7){
             avgFeeling += obj["feeling"]*obj["homeworkHrs"];
           } else {
             avgFeeling += obj["feeling"]*(obj["homeworkHrs"]+8);

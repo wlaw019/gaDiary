@@ -237,7 +237,14 @@ router.post("/", (req, res) => {
 })
 
 
-
+///////////////////
+// delete
+///////////////////
+router.delete("/:id", (req, res) => {
+  Log.findByIdAndRemove(req.params.id, (error, deletedLog) => {
+    res.redirect("/logs");
+  })
+})
 
 
 ///////////////////
