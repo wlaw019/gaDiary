@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
   </head>
   <body>
+    <div class="outter-container">
+
+
     <div class="container">
           <div class="sidebar">
             <div class="showcard cry">
@@ -31,9 +34,14 @@
           <div class="edit-entry">
             <h1>NEW ENTRY</h1>
             <form action="/logs" method="POST">
+              <div class="row">
 
-              <fieldset>
+
+              <fieldset class="fieldset-block1">
                 <legend>DAY INFORMATION</legend>
+
+
+
                 <div class="row">
                   <div class="row-block">
                     <label for ="week">WEEK</label>
@@ -65,7 +73,7 @@
 
               </fieldset>
 
-              <fieldset>
+              <fieldset class="fieldset-block2">
                 <legend>FEELING</legend>
                   <label for="feeling">HOW ARE YOU FEELING ABOUT THE CONTENT?</label>
 
@@ -99,6 +107,8 @@
                         <p>I'm bored, go faster</p>
                       </div>
 
+
+
                       <script>
                         $('input:checkbox').on("click",function() {
                           $('input[type="checkbox"]').not(this).prop('checked', false);
@@ -125,17 +135,20 @@
 
                       </script>
               </fieldset>
-
+  </div>
               <fieldset>
                 <legend>DIARY</legend>
                   <label for="vent">VENT</label>
                   <textarea name="vent" placeholder="Enter text here"></textarea>
               </fieldset>
+</div>
+</div>
 
-              <input type="submit" value="SUBMIT">
+              <input class="btn" type="submit" value="SUBMIT">
             </form>
-          </div>
-        </div>
+              </div>
+
+
 
   </body>
 </html>
