@@ -165,6 +165,36 @@ router.get("/:id/edit", (req, res) => {
 })
 
 
+///////////////////
+// update
+///////////////////
+router.put("/:id", (req, res) => {
+  if (req.body.feeling1==="on") {
+    req.body.feeling=1;
+  } else if (req.body.feeling2==="on") {
+    req.body.feeling=2;
+  } else if (req.body.feeling3==="on") {
+    req.body.feeling=3;
+  } else if (req.body.feeling4==="on") {
+    req.body.feeling=4;
+  } else if (req.body.feeling5==="on") {
+    req.body.feeling=5;
+  }
+
+  let editLog = {
+    week:  req.body.week,
+    weekday:  req.body.weekday,
+    title:  req.body.title,
+    descriptions:  req.body.descriptions,
+    feeling:  req.body.feeling,
+    homeworkHrs:  req.body.homeworkHrs,
+    vent:  req.body.vent
+  }
+
+  Log.findByIdAndUpdate(req.params.id, editLog, {new: true}, (error, updatedLog) => {
+    res.redirect("/logs");
+  })
+})
 
 
 ///////////////////
