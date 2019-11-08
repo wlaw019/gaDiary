@@ -1,3 +1,7 @@
+body{
+  background: whitesmoke;
+}
+
 .container{
   text-align: center;
 }
@@ -61,4 +65,74 @@ legend {
 
 a:hover{
   text-decoration: none;
+  color: #735066;
+}
+
+header{
+  background: #ddd;
+  height: 100px;
+}
+
+.container {
+  width: 80vw;
+  /* height: 70vw; */
+  margin: 50px auto;
+  /* display: flex; */
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #bbb,
+              -1px -1px 10px #bbb,
+              1px -1px 10px #bbb,
+              -1px 1px 10px #bbb;
+  padding: 0;
+}
+
+.edit-entry {
+  /* width: 50%; */
+  background: #f9f9f9;
+  border-radius: 0 0 10px 10px;
+  padding: 15px;
+  /* box-sizing: border-box; */
+  /* overflow: auto; */
+}
+
+.sidebar {
+  height: 150px;
+  /* background: url('img/smile.png');
+  background-size: contain;
+  background-repeat: no-repeat; */
+  border-radius: 10px 10px 0 0;
+  background: #ddd;
+}
+
+.card-overview{
+  border: none;
+  background: none;
+}
+
+h1{
+  color: #735066;
+  padding-top: 50px;
+  margin: 0;
+}
+
+.btn-index {
+  width: 200px;
+  height: 50px;
+  background: #735066;
+  box-shadow: 3px 3px lightblue;
+  font-family: 'Open Sans';
+  font-size: 1.3em;
+  color: whitesmoke;
+  border: 0px;
+  transition: 0.2s ease-in-out;
+  border-radius: 10px;
+
+  margin-left: 90%;
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+  display: inline-block;
+  line-height: 50px;
+  margin-left: 80%;
+  font-family: 'Oswald';
 }

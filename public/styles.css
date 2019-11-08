@@ -9,7 +9,7 @@
 /* GENERAL */
 body {
   background: whitesmoke;
-  /* font-family: helvetica; */
+  font-family: helvetica;
   font-family: "DM Sans";
 }
 
@@ -64,9 +64,9 @@ body {
 
 /* ETC. DECORATION */
 h1 {
-  /* font-family: 'Oswald'; */
-  font-family: 'Open Sans';
-  /* font-weight: 500; */
+  font-family: 'Oswald';
+  /* font-family: 'Open Sans'; */
+  font-weight: 500;
   /* color: var(--bright-pink); */
   color: var(--purple);
   /* border-bottom: 2px solid var(--bright-blue); */
@@ -81,10 +81,10 @@ fieldset {
 }
 legend, h2 {
   padding: 0px 10px;
-  /* font-family: 'Oswald'; */
-  font-family: 'Open Sans';
+  font-family: 'Oswald';
+  /* font-family: 'Open Sans'; */
   /* font-weight: bolder; */
-  /* font-weight: 500; */
+  font-weight: 500;
   color: var(--purple);
 }
 label {

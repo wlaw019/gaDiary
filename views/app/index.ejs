@@ -10,14 +10,18 @@
   </head>
   <body>
     <div class="container">
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Log In</a>
-        <a href="#">Log Out</a>
-      </nav>
-      <h1>My GA Diary</h1>
-      <a href="/logs/new">NEW ENTRY</a>
+      <div class="sidebar">
+
+
+        <h1>My gaDiary</h1>
+
+      </div>
+
+      <div class="edit-entry">
+<a class="btn-index" href="/logs/new">NEW ENTRY</a>
+
+
+
       <% const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; }));
       let weeklyHrsArray = [];
        for (var k = 1; k <= highestWeek; k++) {
@@ -40,8 +44,7 @@
       let minWeek = Math.min.apply(null, weeklyHrsArray);
       let indexMinWeek = weeklyHrsArray.indexOf(minWeek);
       %>
-      <p>Best week: <%= indexMinWeek+1 %></p>
-      <p>Worst week: <%= indexMaxWeek+1 %></p>
+
 
 
 
@@ -68,30 +71,34 @@
       <fieldset class="overview">
         <legend>Overview</legend>
         <div class="row">
-          <div class="card">
+          <div class="card card-overview">
             <img src="/img/cry.png" alt="cry image">
             <p><%=feelingCry%> days</p>
           </div>
 
-          <div class="card">
+          <div class="card card-overview">
             <img src="/img/sad.png" alt="sad image">
             <p><%=feelingSad%> days</p>
           </div>
 
-          <div class="card">
+          <div class="card card-overview">
             <img src="/img/neutral.png" alt="neutral image">
             <p><%=feelingNeutral%> days</p>
           </div>
 
-          <div class="card">
+          <div class="card card-overview">
             <img src="/img/smile.png" alt="smile image">
             <p><%=feelingSmile%> days</p>
           </div>
 
-          <div class="card">
+          <div class="card card-overview">
             <img src="/img/party.png" alt="party image">
             <p><%=feelingParty%> days</p>
           </div>
+        </div>
+        <div class="row weeklystat">
+          <p>Best week: <%= indexMinWeek+1 %></p>
+          <p>Worst week: <%= indexMaxWeek+1 %></p>
         </div>
       </fieldset>
 
@@ -194,7 +201,7 @@
 
       </fieldset>
       <% } %>
-
+</div>
     </div>
 
   </body>
