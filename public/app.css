@@ -1,5 +1,6 @@
 body{
   background: whitesmoke;
+  /* font-family: "DM Sans"; */
 }
 
 .container{
@@ -35,6 +36,15 @@ body{
   min-width: 100px;
 }
 
+.indexcard:hover{
+  background: #ddd;
+  box-shadow: 10px 5px 5px grey;
+  color: #735066;
+  font-weight: bolder;
+  transform: translateY(-0.7em);
+  /* box-shadow: 0 0.5em 0.5em -0.4em grey; */
+}
+
 
 
 .weeklystat{
@@ -47,6 +57,7 @@ img{
 
 fieldset {
   border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 20px 20px 0 20px;
   margin: 20px 0;
 }
@@ -63,9 +74,12 @@ legend {
   text-align: left;
 }
 
+a{
+  color: #735066;
+}
+
 a:hover{
   text-decoration: none;
-  color: #735066;
 }
 
 header{
@@ -109,10 +123,16 @@ header{
   background: none;
 }
 
+.card-overview img{
+  margin-bottom: 5px;
+}
+
 h1{
   color: #735066;
   padding-top: 50px;
   margin: 0;
+  /* font-family: 'Oswald';
+  font-weight: 500; */
 }
 
 .btn-index {
@@ -120,11 +140,11 @@ h1{
   height: 50px;
   background: #735066;
   box-shadow: 3px 3px lightblue;
-  font-family: 'Open Sans';
+  /* font-family: 'Open Sans'; */
   font-size: 1.3em;
   color: whitesmoke;
   border: 0px;
-  transition: 0.2s ease-in-out;
+  /* transition: 0.2s ease-in-out; */
   border-radius: 10px;
 
   margin-left: 90%;
@@ -135,4 +155,44 @@ h1{
   line-height: 50px;
   margin-left: 80%;
   font-family: 'Oswald';
+}
+
+.btn-index:hover{
+  cursor: pointer;
+  color: #735066;
+  background: #14bece;
+  background: lightblue;
+  box-shadow: 2px 2px #735066;
+}
+
+.row-feeling{
+  display: flex;
+  justify-content: flex-start;
+  /* align-content: center; */
+  align-items: center;
+}
+
+p{
+  color: #735066;
+}
+
+.weeklystat p{
+  color: #735066;
+  font-weight: bold;
+}
+
+.btn-feeling{
+  /* display: inline-block; */
+  /* box-sizing: border-box; */
+  width: 20px;
+  /* height: 40px; */
+  background: grey;
+  color: white;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-sizing: content-box;
+  margin-bottom: 16px;
+  margin-top: 0;
 }

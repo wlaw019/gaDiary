@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/app.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Open+Sans&display=swap" rel="stylesheet">
 
   </head>
   <body>
@@ -179,8 +181,9 @@
 
         <div class="row weeklystat">
           <p>Total working hours: <%=weeklyHrs%> hrs week</p>
-          <p>Weighted average feeling: <%=avgFeeling%> =>
-            <% switch (avgFeeling){
+          <div class="row-feeling">
+          <p>Weighted average feeling: <div class="btn-feeling"><%=avgFeeling%></div>
+            <p><% switch (avgFeeling){
               case 1: %>
                 What have I done with my life?<%;
                  break;
@@ -196,7 +199,9 @@
               case 5: %>
                 I'm bored, go faster<%;
             } %>
+            </p>
           </p>
+          </div>
         </div>
 
       </fieldset>
