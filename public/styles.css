@@ -10,6 +10,7 @@
 body {
   background: whitesmoke;
   font-family: helvetica;
+  font-family: "DM Sans";
 }
 
 /* CONTAINERS */
@@ -23,7 +24,7 @@ body {
               -1px -1px 10px #bbb,
               1px -1px 10px #bbb,
               -1px 1px 10px #bbb;
-  position: relative;
+  /* position: relative; */
 }
 .sidebar {
   /* width: 50%; */
@@ -63,10 +64,14 @@ body {
 
 /* ETC. DECORATION */
 h1 {
-  font-family: 'Oswald';
-  font-weight: 500;
-  color: var(--bright-pink);
-  border-bottom: 2px solid var(--bright-blue);
+  /* font-family: 'Oswald'; */
+  font-family: 'Open Sans';
+  font-weight: bolder;
+  /* font-weight: 500; */
+  /* color: var(--bright-pink); */
+  color: var(--purple);
+  /* border-bottom: 2px solid var(--bright-blue); */
+  border-bottom: 2px solid lightblue;
 }
 
 /* FORMS */
@@ -77,14 +82,17 @@ fieldset {
 }
 legend {
   padding: 0px 10px;
-  font-family: 'Oswald';
-  font-weight: 500;
+  /* font-family: 'Oswald'; */
+  font-family: 'Open Sans';
+  font-weight: bolder;
+  /* font-weight: 500; */
   color: var(--purple);
 }
 label {
-  font-family: 'Oswald';
+  /* font-family: 'DM Sans'; */
   font-weight: 200;
   color: var(--bright-pink);
+  /* color: #f0a8bb; */
   display: block;
 }
 
@@ -95,7 +103,8 @@ input, textarea {
   margin-top: 0;
   padding: 10px;
   box-sizing: border-box;
-  border: 1px solid var(--dusty-blue);
+  /* border: 1px solid var(--dusty-blue); */
+  border: 1px solid lightblue;
 }
 input:focus, textarea:focus {
   /* the outline property selects the default blue border that shows up on inputs. giving it a value of 0 gets rid of it */
@@ -107,7 +116,7 @@ input[type="submit"] {
   width: 20%;
   height: 50px;
   background: var(--purple);
-  box-shadow: 2px 2px var(--bright-blue);
+  box-shadow: 3px 3px lightblue;
   font-family: 'Oswald';
   font-size: 1.3em;
   color: whitesmoke;
@@ -116,20 +125,23 @@ input[type="submit"] {
   border-radius: 10px;
   /* margin-left: 40%; */
   /* margin-top: 20px; */
-  position: absolute;
-  top: 75vw;
-  left: 40%;
+  /* position: absolute;
+  top: 75vw; */
+  margin-left: 40%;
+  /* margin-bottom: 150px; */
 }
 input[type="submit"]:hover {
   cursor: pointer;
+  color: var(--purple);
   background: var(--bright-blue);
+  background: lightblue;
   box-shadow: 2px 2px var(--purple);
 }
 
 textarea {
- resize: none;
- height: 75px;
- /* max-height: 150px; */
+ resize: vertical;
+ min-height: 75px;
+ max-height: 150px;
 }
 
 .row-feeling{
@@ -184,6 +196,7 @@ margin-right: 20px;
 margin-bottom: 3px;
 }
 
-/* .outter-container{
-  margin: 0 auto;
-} */
+p{
+  color: var(--purple);
+  font-weight: bold;
+}
