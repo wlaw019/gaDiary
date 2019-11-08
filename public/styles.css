@@ -9,14 +9,14 @@
 /* GENERAL */
 body {
   background: whitesmoke;
-  font-family: helvetica;
+  /* font-family: helvetica; */
   font-family: "DM Sans";
 }
 
 /* CONTAINERS */
 .container {
   width: 80vw;
-  height: 70vw;
+  /* height: 70vw; */
   margin: 50px auto;
   /* display: flex; */
   border-radius: 10px;
@@ -24,7 +24,7 @@ body {
               -1px -1px 10px #bbb,
               1px -1px 10px #bbb,
               -1px 1px 10px #bbb;
-  /* position: relative; */
+  padding: 0;
 }
 .sidebar {
   /* width: 50%; */
@@ -56,17 +56,16 @@ body {
 .edit-entry {
   /* width: 50%; */
   background: #f9f9f9;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 0 10px 10px;
   padding: 15px;
-  box-sizing: border-box;
-  overflow: auto;
+  /* box-sizing: border-box; */
+  /* overflow: auto; */
 }
 
 /* ETC. DECORATION */
 h1 {
   /* font-family: 'Oswald'; */
   font-family: 'Open Sans';
-  font-weight: bolder;
   /* font-weight: 500; */
   /* color: var(--bright-pink); */
   color: var(--purple);
@@ -80,11 +79,11 @@ fieldset {
   padding: 20px;
   margin: 20px 0;
 }
-legend {
+legend, h2 {
   padding: 0px 10px;
   /* font-family: 'Oswald'; */
   font-family: 'Open Sans';
-  font-weight: bolder;
+  /* font-weight: bolder; */
   /* font-weight: 500; */
   color: var(--purple);
 }
@@ -112,7 +111,7 @@ input:focus, textarea:focus {
   border: 1px solid var(--purple);
 }
 
-input[type="submit"] {
+input[type="submit"], a {
   width: 20%;
   height: 50px;
   background: var(--purple);
@@ -130,7 +129,12 @@ input[type="submit"] {
   margin-left: 40%;
   /* margin-bottom: 150px; */
 }
-input[type="submit"]:hover {
+
+a{
+  padding: 14px 25px;
+}
+
+input[type="submit"]:hover, a:hover {
   cursor: pointer;
   color: var(--purple);
   background: var(--bright-blue);
@@ -155,9 +159,6 @@ input[type="checkbox"]{
   cursor: pointer;
   width: 5px;
   margin: 10px;
-  /* display: inline-block; */
-  /* display: inline-block; */
-
 }
 
 .btn-feeling{
@@ -171,6 +172,7 @@ input[type="checkbox"]{
   margin: 10px;
   text-align: center;
   border-radius: 5px;
+  box-sizing: content-box;
 }
 
 .row{
@@ -196,7 +198,30 @@ margin-right: 20px;
 margin-bottom: 3px;
 }
 
-p{
+p, h4{
   color: var(--purple);
-  font-weight: bold;
+  /* font-weight: bold; */
+  margin: 0;
+}
+
+.card-descriptions{
+  display: flex;
+  flex-direction: column;
+}
+
+.card-descriptions p{
+  margin-left: 50px;
+  color: var(--bright-pink);
+}
+
+.show-descriptions, .form-show{
+  margin: 10px;
+}
+
+.form-show label{
+  margin: 0;
+}
+
+.sidebar-show{
+  justify-content: center;
 }

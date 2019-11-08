@@ -53,8 +53,10 @@
           <div class="edit-entry">
             <h1>EDIT ENTRY</h1>
             <form action="/logs/<%=log.id%>?_method=PUT" method="POST">
+              <div class="row">
 
-              <fieldset>
+
+              <fieldset class="fieldset-block1">
                 <legend>DAY INFORMATION</legend>
                   <div class="row">
                     <div class="row-block">
@@ -90,7 +92,7 @@
 
               </fieldset>
 
-              <fieldset>
+              <fieldset class="fieldset-block2">
 
 
                 <legend>FEELING</legend>
@@ -185,7 +187,7 @@
 
                       </script>
               </fieldset>
-
+</div>
               <fieldset>
                 <legend>DIARY</legend>
                   <label for="vent">VENT</label>

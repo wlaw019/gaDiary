@@ -3,90 +3,106 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/app.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="/app.css"> -->
+    <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <h1>Week <%=log.week%>:
+      <div class="sidebar sidebar-show">
+        <div class="card showcard">
+        <% switch (log.feeling){
+          case 1: %>
+            <img src="/img/cry.png" alt="cry image"><%;
+             break;
+          case 2: %>
+            <img src="/img/sad.png" alt="sad image"><%;
+            break;
+          case 3: %>
+            <img src="/img/neutral.png" alt="neutral image"><%;
+            break;
+          case 4: %>
+            <img src="/img/smile.png" alt="smile image"><%;
+            break;
+          case 5: %>
+            <img src="/img/party.png" alt="party image"><%;
+        }%>
+        </div>
+
+        <div class="card-descriptions">
+          <div class="row-feeling">
+              <div class="btn-feeling"><%=log.feeling%></div>
+              <h4>
+                <% switch (log.feeling){
+                  case 1: %>
+                    What have I done with my life?<%;
+                     break;
+                  case 2: %>
+                    I'm lost<%;
+                    break;
+                  case 3: %>
+                    Hanging in there<%;
+                    break;
+                  case 4: %>
+                    Perfect<%;
+                    break;
+                  case 5: %>
+                    I'm bored, go faster<%;
+                } %>
+              </h4>
+        </div>
+        <p><%=log.classHrs%> hrs class + <%=log.homeworkHrs%> hrs homework</p>
+        <p>=> <%=log.classHrs+log.homeworkHrs%> hrs work day</p>
+      </div>
+    </div>
+
+    <div class="edit-entry">
+      <h1>WEEK <%=log.week%>:
         <%switch (log.weekday){
          case 1: %>
-           Mon<%;
+           MON<%;
             break;
          case 2: %>
-           Tue<%;
+           TUE<%;
            break;
          case 3: %>
-           Wed<%;
+           WED<%;
            break;
          case 4: %>
-           Thu<%;
+           THU<%;
            break;
          case 5: %>
-           Fri<%;
+           FRI<%;
            break;
          case 6: %>
-           Sat<%;
+           SAT<%;
            break;
          case 7: %>
-           Sun<%;
+           SUN<%;
        } %>
       </h1>
       <h2><%=log.title%></h2>
-      <p><%=log.descriptions%></p>
-      <div class="card showcard">
-      <% switch (log.feeling){
-        case 1: %>
-          <img src="/img/cry.png" alt="cry image"><%;
-           break;
-        case 2: %>
-          <img src="/img/sad.png" alt="sad image"><%;
-          break;
-        case 3: %>
-          <img src="/img/neutral.png" alt="neutral image"><%;
-          break;
-        case 4: %>
-          <img src="/img/smile.png" alt="smile image"><%;
-          break;
-        case 5: %>
-          <img src="/img/party.png" alt="party image"><%;
-      }%>
-      </div>
-      <p class="card-descriptions"><%=log.feeling%>:
-        <% switch (log.feeling){
-          case 1: %>
-            What have I done with my life?<%;
-             break;
-          case 2: %>
-            I'm lost<%;
-            break;
-          case 3: %>
-            Hanging in there<%;
-            break;
-          case 4: %>
-            Perfect<%;
-            break;
-          case 5: %>
-            I'm bored, go faster<%;
-        } %>
-      </p>
+      <p class="show-descriptions"><%=log.descriptions%></p>
 
-        <p><%=log.classHrs%> hrs class + <%=log.homeworkHrs%> hrs homework</p>
-        <p>=> <%=log.classHrs+log.homeworkHrs%> hrs work day</p>
-
-
-      <div class="form-group">
+      <div class="form-show">
         <label class="vent" for="exampleFormControlTextarea3">Vent</label>
         <textarea readonly class="form-control" id="exampleFormControlTextarea3" rows="7"><%=log.vent%></textarea>
       </div>
+
+      <div class="sidebar-show">
+
 
       <a href="/logs/<%=log.id%>/edit">EDIT</a>
       <form action="/logs/<%=log.id%>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE">
       </form>
-
+      </div>
+    </div>
 
     </div>
+
   </body>
 </html>
