@@ -118,12 +118,15 @@ header{
 
 .sidebar {
   height: 150px;
-  /* background: url('img/smile.png');
-  background-size: contain;
-  background-repeat: no-repeat; */
+  background: url('/img/banner1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 10px 10px 0 0;
-  background: #ddd;
+  display: block;
+  /* background-color: #ddd; */
 }
+
+
 
 .card-overview{
   border: none;
@@ -135,8 +138,9 @@ header{
 }
 
 h1{
-  color: #735066;
-  padding-top: 50px;
+  /* color: #735066; */
+  color: #8DC149;
+  padding-top: 55px;
   margin: 0;
   /* font-family: 'Oswald';
   font-weight: 500; */
