@@ -71,7 +71,7 @@
           }).length; %>
 
       <fieldset class="overview">
-        <legend><a href="/logs/chart">Overview</a></legend>
+        <legend><a href="/logs/chart/overview">Overview</a></legend>
 
         <div class="row">
           <div class="card card-overview">
@@ -127,7 +127,7 @@
         avgFeeling = Math.round(avgFeeling/weeklyHrs);%>
 
       <fieldset>
-        <legend>Week <%=k%></legend>
+        <legend><a href="/logs/chart/<%=k%>">Week <%=k%></a></legend>
         <div class="row">
         <% for (var i = 0; i < weeklyLogs.length; i++) { %>
           <a href="/logs/<%=weeklyLogs[i].id%>">

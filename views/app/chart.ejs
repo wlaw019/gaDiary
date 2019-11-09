@@ -25,7 +25,12 @@
   console.log(chartWeekday);
   console.log(chartWorkHrs); %>
 
-  <h1>Overview: Day Vs Total Working Hours</h1>
+  <% if(overview){ %>
+    <h1>Overview: Day Vs Total Working Hours</h1>
+  <%} else { %>
+    <h1>Week <%=logs[0].week%>: Day Vs Total Working Hours</h1>
+  <% } %>
+
   <canvas id="myChart" width="400" height="400"></canvas>
 
   <script>
@@ -61,7 +66,7 @@
             ticks: {beginAtZero: true}
           }],
           xAxes: [{
-            scaleLabel: {display: true, labelString: 'Day of the week'}
+            scaleLabel: {display: true, labelString: 'Day'}
           }]
         }
       }

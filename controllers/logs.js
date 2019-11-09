@@ -29,11 +29,11 @@ router.get("/", (req, res) => {
 //   res.send("hello");
 // })
 
-router.get("/chart", (req, res) => {
-  Log.find({}, (error, allLogs) => {
-    res.render("app/indexchart.ejs", {logs: allLogs});
-  }).sort({week:1}).sort({weekday:1})
-})
+// router.get("/chart", (req, res) => {
+//   Log.find({}, (error, allLogs) => {
+//     res.render("app/indexchart.ejs", {logs: allLogs});
+//   }).sort({week:1}).sort({weekday:1})
+// })
 
 
 ///////////////////
@@ -138,6 +138,20 @@ router.get("/:id", (req,res) => {
     res.render("app/show.ejs", {log: foundLog});
   })
 })
+
+router.get("/chart/:week", (req,res) => {
+  if (req.params.week==="overview") {
+    Log.find({}, (error, allLogs) => {
+      res.render("app/chart.ejs", {logs: allLogs, overview:true});
+    }).sort({week:1}).sort({weekday:1})
+  } else {
+    Log.find({week:req.params.week}, (error, weekLog) => {
+      res.render("app/chart.ejs", {logs: weekLog, overview:false});
+    }).sort({weekday:1})
+  }
+
+})
+
 
 
 
