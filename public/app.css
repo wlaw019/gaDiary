@@ -70,6 +70,13 @@ legend {
   width: auto;
 }
 
+legend a:hover {
+  color: #735066;
+  font-weight: bolder;
+  /* text-shadow: 2px 2px lightblue; */
+
+}
+
 .form-group{
   text-align: left;
 }

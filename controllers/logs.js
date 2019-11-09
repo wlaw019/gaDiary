@@ -29,6 +29,12 @@ router.get("/", (req, res) => {
 //   res.send("hello");
 // })
 
+router.get("/chart", (req, res) => {
+  Log.find({}, (error, allLogs) => {
+    res.render("app/indexchart.ejs", {logs: allLogs});
+  }).sort({week:1}).sort({weekday:1})
+})
+
 
 ///////////////////
 // edit
