@@ -207,3 +207,34 @@ p{
   margin-bottom: 16px;
   margin-top: 0;
 }
+
+.btn-login{
+  margin: 30px;
+}
+
+.login img{
+  margin-bottom: 30px;
+}
+
+label{
+  color: #735066;
+  font-weight: bolder;
+  margin: 10px;
+}
+
+.edit-entry-login{
+  box-sizing: content-box;
+  min-height: 275px;
+}
+
+.edit-entry-login label:first-child{
+  margin-top: 70px;
+}
+
+.btn-logout{
+  /* color: #735066; */
+  color: #8DC149;
+  text-align: right;
+  /* font-family: 'Oswald';
+  font-weight: 500; */
+}
