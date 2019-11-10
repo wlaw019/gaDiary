@@ -8,6 +8,8 @@ const app = express();
 // const db = mongoose.connection;
 require("dotenv").config();
 
+const session = require("express-session");
+
 
 ///////////////////
 // middleware
@@ -15,6 +17,7 @@ require("dotenv").config();
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.use(session({secret: "feedmeseymour", resave: false, saveUninitialized: false}));
 
 
 ///////////////////
@@ -22,6 +25,18 @@ app.use(methodOverride("_method"));
 ///////////////////
 const logsController = require("./controllers/logs.js");
 app.use("/logs", logsController);
+
+const usersController = require("./controllers/users.js");
+app.use("/users", usersController);
+
+const sessionsController = require("./controllers/sessions.js");
+app.use("/sessions",sessionsController);
+
+
+// Register page
+app.get("/", (req, res) => {
+  res.render("home.ejs");
+})
 
 
 ///////////////////

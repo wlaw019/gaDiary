@@ -20,10 +20,17 @@ router.get("/seed", (req, res) => {
 // index
 ///////////////////
 router.get("/", (req, res) => {
-  Log.find({}, (error, allLogs) => {
-    res.render("app/index.ejs", {logs: allLogs});
-  }).sort({week:1}).sort({weekday:1})
+  if (req.session.username) {
+    Log.find({username:req.session.username}, (error, allLogs) => {
+      res.render("app/index.ejs", {logs: allLogs, username:req.session.username});
+    }).sort({week:1}).sort({weekday:1})
+  } else {
+    res.redirect("/");
+  }
+
 })
+
+
 
 // router.get("/test",(req, res) => {
 //   res.send("hello");
@@ -63,6 +70,7 @@ router.put("/:id", (req, res) => {
   }
 
   let editLog = {
+    username: req.session.username,
     week:  req.body.week,
     weekday:  req.body.weekday,
     title:  req.body.title,
@@ -104,6 +112,7 @@ router.post("/", (req, res) => {
   }
 
   let newLog = {
+    username: req.session.username,
     week:  req.body.week,
     weekday:  req.body.weekday,
     title:  req.body.title,
@@ -114,9 +123,15 @@ router.post("/", (req, res) => {
     vent:  req.body.vent
   }
 
-  Log.create(newLog, (error, createdLog) => {
-    res.redirect("/logs");
-  })
+
+  if (req.session.username) {
+    Log.create(newLog, (error, createdLog) => {
+      res.redirect("/logs");
+    })
+  } else {
+    res.redirect("/");
+  }
+
 })
 
 

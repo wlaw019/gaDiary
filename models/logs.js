@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 // new log schema
 const logSchema = new mongoose.Schema({
+    username: String,
     week:  Number,
     weekday:  Number,
     title:  String,

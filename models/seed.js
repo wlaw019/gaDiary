@@ -1,5 +1,6 @@
 module.exports = [
   {
+    username: "wincy",
     week:  1,
     weekday:  1,
     title:  "Intro",
@@ -10,6 +11,7 @@ module.exports = [
     vent:  "This is w01d01"
   },
   {
+    username: "wincy",
     week:  1,
     weekday:  2,
     title:  "Github",
@@ -20,6 +22,7 @@ module.exports = [
     vent:  "This is w01d02"
   },
   {
+    username: "wincy",
     week:  1,
     weekday:  3,
     title:  "Loops",
@@ -30,6 +33,7 @@ module.exports = [
     vent:  "This is w01d03"
   },
   {
+    username: "wincy",
     week:  1,
     weekday:  4,
     title:  "Flexbox",
@@ -40,6 +44,7 @@ module.exports = [
     vent:  "This is w01d04"
   },
   {
+    username: "wincy",
     week:  1,
     weekday:  5,
     title:  "Objects",
@@ -50,6 +55,7 @@ module.exports = [
     vent:  "This is w01d05"
   },
   {
+    username: "wincy",
     week:  1,
     weekday:  6,
     title:  "Homework",
@@ -60,6 +66,7 @@ module.exports = [
     vent:  "This is w01d06"
   },
   {
+    username: "wincy",
     week:  1,
     weekday:  7,
     title:  "Rest",
@@ -69,6 +76,7 @@ module.exports = [
     homeworkHrs:  0,
     vent:  "This is w01d07"
   },{
+    username: "wincy",
     week:  2,
     weekday:  1,
     title:  "Object-ception",
@@ -79,6 +87,7 @@ module.exports = [
     vent:  "This is w02d01"
   },
   {
+    username: "wincy",
     week:  2,
     weekday:  2,
     title:  "Callbacks",
@@ -89,6 +98,7 @@ module.exports = [
     vent:  "This is w02d02"
   },
   {
+    username: "wincy",
     week:  2,
     weekday:  3,
     title:  "OOP",
@@ -99,6 +109,7 @@ module.exports = [
     vent:  "This is w02d03"
   },
   {
+    username: "wincy",
     week:  2,
     weekday:  4,
     title:  "Spacebattle",
@@ -109,6 +120,7 @@ module.exports = [
     vent:  "This is w02d04"
   },
   {
+    username: "wincy",
     week:  2,
     weekday:  5,
     title:  "DOM",
@@ -119,6 +131,7 @@ module.exports = [
     vent:  "This is w02d05"
   },
   {
+    username: "wincy",
     week:  2,
     weekday:  6,
     title:  "Homework",
@@ -129,6 +142,7 @@ module.exports = [
     vent:  "This is w02d06"
   },
   {
+    username: "wincy",
     week:  2,
     weekday:  7,
     title:  "Rest",
