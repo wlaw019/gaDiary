@@ -6,6 +6,16 @@ const router = express.Router();
 const Log = require("../models/logs.js");
 const logSeed = require('../models/seed.js')
 
+///////////////////
+// middleware
+///////////////////
+const isAuthenticated = (req, res, next) => {
+  if (req.session.username) {
+    return next();
+  } else {
+    res.redirect("/");
+  }
+}
 
 ///////////////////
 // seed
@@ -19,14 +29,10 @@ router.get("/seed", (req, res) => {
 ///////////////////
 // index
 ///////////////////
-router.get("/", (req, res) => {
-  if (req.session.username) {
-    Log.find({username:req.session.username}, (error, allLogs) => {
-      res.render("app/index.ejs", {logs: allLogs, username:req.session.username});
-    }).sort({week:1}).sort({weekday:1})
-  } else {
-    res.redirect("/");
-  }
+router.get("/", isAuthenticated, (req, res) => {
+  Log.find({username:req.session.username}, (error, allLogs) => {
+    res.render("app/index.ejs", {logs: allLogs, username:req.session.username});
+  }).sort({week:1}).sort({weekday:1})
 
 })
 
@@ -46,7 +52,7 @@ router.get("/", (req, res) => {
 ///////////////////
 // edit
 ///////////////////
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", isAuthenticated, (req, res) => {
   Log.findById(req.params.id, (error, foundLog) => {
     res.render("app/edit.ejs", {log: foundLog});
   })
@@ -56,7 +62,7 @@ router.get("/:id/edit", (req, res) => {
 ///////////////////
 // update
 ///////////////////
-router.put("/:id", (req, res) => {
+router.put("/:id", isAuthenticated, (req, res) => {
   if (req.body.feeling1==="on") {
     req.body.feeling=1;
   } else if (req.body.feeling2==="on") {
@@ -90,7 +96,7 @@ router.put("/:id", (req, res) => {
 ///////////////////
 // new
 ///////////////////
-router.get("/new", (req, res) => {
+router.get("/new", isAuthenticated, (req, res) => {
   res.render("app/new.ejs");
 })
 
@@ -98,7 +104,7 @@ router.get("/new", (req, res) => {
 ///////////////////
 // create
 ///////////////////
-router.post("/", (req, res) => {
+router.post("/", isAuthenticated, (req, res) => {
   if (req.body.feeling1==="on") {
     req.body.feeling=1;
   } else if (req.body.feeling2==="on") {
@@ -124,13 +130,9 @@ router.post("/", (req, res) => {
   }
 
 
-  if (req.session.username) {
-    Log.create(newLog, (error, createdLog) => {
-      res.redirect("/logs");
-    })
-  } else {
-    res.redirect("/");
-  }
+  Log.create(newLog, (error, createdLog) => {
+    res.redirect("/logs");
+  })
 
 })
 
@@ -138,7 +140,7 @@ router.post("/", (req, res) => {
 ///////////////////
 // delete
 ///////////////////
-router.delete("/:id", (req, res) => {
+router.delete("/:id", isAuthenticated, (req, res) => {
   Log.findByIdAndRemove(req.params.id, (error, deletedLog) => {
     res.redirect("/logs");
   })
@@ -148,13 +150,13 @@ router.delete("/:id", (req, res) => {
 ///////////////////
 // show
 ///////////////////
-router.get("/:id", (req,res) => {
+router.get("/:id", isAuthenticated, (req,res) => {
   Log.findById(req.params.id, (error, foundLog) => {
     res.render("app/show.ejs", {log: foundLog});
   })
 })
 
-router.get("/chart/:week", (req,res) => {
+router.get("/chart/:week", isAuthenticated, (req,res) => {
   if (req.params.week==="overview") {
     Log.find({}, (error, allLogs) => {
       res.render("app/chart.ejs", {logs: allLogs, overview:true});
