@@ -1,88 +1,87 @@
-# gaDiary
-https://wlaw019.github.io/OMDB-app/
+# My gaDiary
+https://wlawgadiary.herokuapp.com/
 
-* Randomly generate questions under three categories (Year, Director and Production) based on most popular 100 movies
-* User can only reveal one question (Genre) at a time
-* User put a "check" mark on the board if the question is answered correctly, otherwise a "X"
-* Identify User Won, User Lost or No one Won and then freeze the board
+* Create GA diary that is tied to the username
+* Logs daily GA progress (e.g. class hrs, homework hrs, feeling etc)
+* Logs are sorted by week and weekday on index page
+* Sum weekly work hrs and calculates weighted average feeling
+* Overview on index keep tracks of the number of days under each feeling category.  It also identifies the Best and Worst week in terms of weekly work hrs
+* Charts daily work hours and feeling under Overview or by the week
 
 ## Resources Used
 
-* OMDb API used for all the questions and answers data.  
-Limitation: I can only get data one movie at a time.  No built-in filter by years or popularity as such.
-http://www.omdbapi.com/
+* MongoDB Atlas
 
-* Most popular 100 movies.         
-Limitation: I had to post-process the data to fit an array format       
-https://www.listchallenges.com/100-of-the-most-popular-movies-of-all-time
+* Heroku
 
-* Other databases explored but not used due to having the same limitation as OMDb (can only search by title)  
-https://rapidapi.com/imdb/api/movie-database-imdb-alternative        
-https://rapidapi.com/IVALLC/api/entertainment-data-hub
+* Apple emoji images
+https://emojipedia.org/apple/      
 
 ## Wire Framing
 ![wire framing](public/img/wireFraming.jpg)
 
-### Technology Used
+## Technology Used
 * HTML
 * CSS   
 * Javascript
 * jQuery  
 * Google Fonts
-
-### Approach Taken
-Here are the steps taken for every grid on board
-
-![grid genre](img/genre.png)
-
-![grid data](img/gridData.png)
-
-```html
-1  <div class = "grid">
-2      <h3 class = "genre"></h3>
-3      <div class = "questionDiv">
-4          <h4 class = "title"></h4>
-5          <p class = "question"></p>
-6          <div class = "ans">
-7              <button class = "rightAns"></button>
-8              <button class = "wrongAns"></button>
-9              <button class = "wrongAns"></button>
-10         </div>
-11     </div>
-12 </div>
+* Chart.js
+* Express
+```json
+"dependencies": {
+  "bcrypt": "^3.0.6",
+  "dotenv": "^8.2.0",
+  "ejs": "^2.7.1",
+  "express": "^4.17.1",
+  "express-session": "^1.17.0",
+  "method-override": "^3.0.0",
+  "mongoose": "^5.7.8"
+}
 ```
-## Functions Used to populate grid
-const movie = ["The Avengers","Back to the Future","Batman",...]
 
-const category = ["Year", "Director", "Production"]
+## Approach Taken
+Here are the steps taken to populate the index page
 
-### getData()
-* This function populates line 1 to 7 based on using the movie array
-* Randomly picked a movie and category then AJAX
+### Find logs based on username and sort them by week then weekday
+```js
+router.get("/", isAuthenticated, (req, res) => {
+  Log.find({username:req.session.username}, (error, allLogs) => {
+    res.render("app/index.ejs", {logs: allLogs, username:req.session.username});
+  }).sort({week:1}).sort({weekday:1})
+})
+```
+### Overview fieldset
+A for loop to generate  
+```js
+// Calculates the Best week and Worst week
+weeklyHrsArray.push(weeklyHrs)
 
-### getDataBtn1()
-* Callback function in getData()
-* This function creates the 1st WrongAns button on line 8
-* Randomly picked another movie but with the same category from getData() then run another AJAX
+// Calculates the number of days in each Feeling category
+let feelingCry = logs.filter(obj => {
+      return obj.feeling === 1;
+    }).length;
+```
 
-### getDataBtn2()
-* Callback function in getDataBtn1
-* This function creates 2nd WrongAns button on line 9
-* Randomly picked another movie but with the same category from getData() then run another AJAX
+### Week fieldset
+A for loop to populate logs by week  
+```js
+// Filter logs into weeklyLogs
+for (var k = 1; k <= highestWeek; k++) {
+  let weeklyLogs = logs.filter(obj => {
+    return obj.week === k;
+  });
 
-### shuffleBtn()
-* Callback function in getDataBtn2
-* This function checks for duplicate buttons (rightAns = wrongAns, wrongAns1 = wrongAns2) and update the wrongAns with another randomly generated answer based on the ansTotal array (contains all the ans generated for the board)
-* Last step is to shuffle the buttons so that the rightAns is not always the first button
+// Calculates the weekly total working hours
+weeklyHrs += obj["classHrs"]+obj["homeworkHrs"];
 
-*** All AJAX had to be chained to ensure the order of execution is correct
+// Calculates weighted average feeling
+avgFeeling += obj["feeling"]*(obj["classHrs"]+obj["homeworkHrs"]);
+
+avgFeeling = Math.round(avgFeeling/weeklyHrs);
+```
 
 ### Limitations of the App
-* My App is only as good as the API
-    * No entry for the movie selected (test engineer!!!)
-    * "N/A" data listed inside the API
-* shuffleBtn() updates duplicate buttons but does not take care of cases like:
-  * 20th Century Fox
-  * 20th Century-Fox
-  * twentieth Century Fox
+* Does not identify duplicate weekdays
+* Identify the first Best or Worst week due to the indexof function used
 * More fluff!?!

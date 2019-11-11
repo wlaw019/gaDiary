@@ -36,7 +36,6 @@ router.get("/", isAuthenticated, (req, res) => {
   Log.find({username:req.session.username}, (error, allLogs) => {
     res.render("app/index.ejs", {logs: allLogs, username:req.session.username});
   }).sort({week:1}).sort({weekday:1})
-
 })
 
 
