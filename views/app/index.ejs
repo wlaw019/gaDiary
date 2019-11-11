@@ -6,25 +6,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/app.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Open+Sans&display=swap" rel="stylesheet">
-
   </head>
+
   <body>
     <div class="container">
+
       <div class="sidebar">
-
-
         <h1>"My gaDiary"</h1>
         <a class="btn-logout" href="/sessions/destroy">Log Out</a>
-
       </div>
 
       <div class="edit-entry">
-<a class="btn-index" href="/logs/new">NEW ENTRY</a>
+        <a class="btn-index" href="/logs/new">NEW ENTRY</a>
 
-
-
+      <!-- Calculates the Best week and Worst week, only first one shows up if 2 weeks have the same number of hours -->
       <% const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; }));
       let weeklyHrsArray = [];
        for (var k = 1; k <= highestWeek; k++) {
@@ -39,7 +34,6 @@
         })
 
         weeklyHrsArray.push(weeklyHrs);
-
       }
 
       let maxWeek = Math.max.apply(null, weeklyHrsArray);
@@ -48,9 +42,7 @@
       let indexMinWeek = weeklyHrsArray.indexOf(minWeek);
       %>
 
-
-
-
+      <!-- Calculates the number of days in each Feeling category -->
       <% let feelingCry = logs.filter(obj => {
             return obj.feeling === 1;
           }).length;
@@ -106,11 +98,8 @@
         </div>
       </fieldset>
 
-      <%
-      <!-- const highestWeek = Math.max.apply(Math, logs.map(function(obj) { return obj.week; })); -->
-      <!-- console.log(highestWeek); -->
-      <!-- let weeklyHrsArray = []; -->
-       for (var k = 1; k <= highestWeek; k++) {
+      <!-- Calculates the weekly total working hours, weighted average feeling -->
+      <% for (var k = 1; k <= highestWeek; k++) {
         let weeklyLogs = logs.filter(obj => {
           return obj.week === k;
         });
@@ -208,7 +197,7 @@
 
       </fieldset>
       <% } %>
-</div>
+    </div>
     </div>
 
   </body>

@@ -3,9 +3,11 @@ const router = express.Router();
 const User = require("../models/users.js")
 const bcrypt = require("bcrypt");
 
+
 router.get("/new", (req, res) => {
   res.render("sessions/new.ejs", {failure: req.session.failure});
 })
+
 
 router.post("/", (req, res) => {
   User.findOne({username: req.body.username}, (error, foundUser) => {
@@ -24,9 +26,11 @@ router.post("/", (req, res) => {
   })
 })
 
+
 router.get("/destroy", (req, res) => {
   req.session.destroy();
   res.redirect("/");
 })
+
 
 module.exports = router;

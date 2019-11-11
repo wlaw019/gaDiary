@@ -1,4 +1,3 @@
-/* VARIABLES */
 :root {
   --bright-pink: #e74c83;
   --purple: #735066;
@@ -6,19 +5,15 @@
   --bright-blue: #14bece;
 }
 
-/* GENERAL */
 body {
   background: whitesmoke;
   /* font-family: helvetica; */
   font-family: "DM Sans";
 }
 
-/* CONTAINERS */
 .container {
   width: 80vw;
-  /* height: 70vw; */
   margin: 50px auto;
-  /* display: flex; */
   border-radius: 10px;
   box-shadow: 1px 1px 10px #bbb,
               -1px -1px 10px #bbb,
@@ -27,15 +22,9 @@ body {
   padding: 0;
 }
 .sidebar {
-  /* width: 50%; */
-  /* background: url('img/smile.png');
-  background-size: contain;
-  background-repeat: no-repeat; */
   border-radius: 10px 10px 0 0;
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-around;
-  /* align-content: center; */
   align-items: center;
   background: #ddd;
 }
@@ -54,57 +43,45 @@ body {
 }
 
 .edit-entry {
-  /* width: 50%; */
   background: #f9f9f9;
   border-radius: 0 0 10px 10px;
   padding: 15px;
-  /* box-sizing: border-box; */
-  /* overflow: auto; */
 }
 
-/* ETC. DECORATION */
 h1 {
   font-family: 'Oswald';
-  /* font-family: 'Open Sans'; */
   font-weight: 500;
-  /* color: var(--bright-pink); */
   color: var(--purple);
-  /* border-bottom: 2px solid var(--bright-blue); */
   border-bottom: 2px solid lightblue;
 }
 
-/* FORMS */
 fieldset {
   border: 1px solid #ccc;
   padding: 20px;
   margin: 20px 0;
 }
+
 legend, h2 {
   padding: 0px 10px;
   font-family: 'Oswald';
-  /* font-family: 'Open Sans'; */
-  /* font-weight: bolder; */
   font-weight: 500;
   color: var(--purple);
 }
 label {
-  /* font-family: 'DM Sans'; */
   font-weight: 200;
   color: var(--bright-pink);
-  /* color: #f0a8bb; */
   display: block;
 }
 
 input, textarea {
   width: 100%;
-
   margin: 10px 0;
   margin-top: 0;
   padding: 10px;
   box-sizing: border-box;
-  /* border: 1px solid var(--dusty-blue); */
   border: 1px solid lightblue;
 }
+
 input:focus, textarea:focus {
   /* the outline property selects the default blue border that shows up on inputs. giving it a value of 0 gets rid of it */
   outline: 0;
@@ -112,7 +89,6 @@ input:focus, textarea:focus {
 }
 
 input[type="submit"], a {
-  /* width: 20%; */
   width: 200px;
   height: 50px;
   background: var(--purple);
@@ -123,14 +99,8 @@ input[type="submit"], a {
   border: 0px;
   transition: 0.2s ease-in-out;
   border-radius: 10px;
-  /* margin-left: 40%; */
-  /* margin-top: 20px; */
-  /* position: absolute;
-  top: 75vw; */
   margin-left: 40%;
-  /* margin-bottom: 150px; */
 }
-
 
 a{
   text-decoration: none;
@@ -142,9 +112,7 @@ a{
 
 #submit-show{
   margin: 0;
-  /* line-height: -50px; */
 }
-
 
 input[type="submit"]:hover, a:hover {
   cursor: pointer;
@@ -163,7 +131,6 @@ textarea {
 .row-feeling{
   display: flex;
   justify-content: flex-start;
-  /* align-content: center; */
   align-items: center;
 }
 
@@ -174,10 +141,7 @@ input[type="checkbox"]{
 }
 
 .btn-feeling{
-  /* display: inline-block; */
-  /* box-sizing: border-box; */
   width: 20px;
-  /* height: 40px; */
   background: grey;
   color: white;
   padding: 5px;
@@ -212,7 +176,6 @@ margin-bottom: 3px;
 
 p, h4{
   color: var(--purple);
-  /* font-weight: bold; */
   margin: 0;
 }
 
@@ -241,6 +204,4 @@ p, h4{
 .btn-row {
   display: flex;
   justify-content: space-around;
-  /* align-content: center; */
-  /* align-itemss: center; */
 }

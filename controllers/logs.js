@@ -6,6 +6,7 @@ const router = express.Router();
 const Log = require("../models/logs.js");
 const logSeed = require('../models/seed.js')
 
+
 ///////////////////
 // middleware
 ///////////////////
@@ -17,6 +18,7 @@ const isAuthenticated = (req, res, next) => {
   }
 }
 
+
 ///////////////////
 // seed
 ///////////////////
@@ -25,6 +27,7 @@ router.get("/seed", (req, res) => {
     res.redirect("/logs");
   })
 })
+
 
 ///////////////////
 // index
@@ -35,18 +38,6 @@ router.get("/", isAuthenticated, (req, res) => {
   }).sort({week:1}).sort({weekday:1})
 
 })
-
-
-
-// router.get("/test",(req, res) => {
-//   res.send("hello");
-// })
-
-// router.get("/chart", (req, res) => {
-//   Log.find({}, (error, allLogs) => {
-//     res.render("app/indexchart.ejs", {logs: allLogs});
-//   }).sort({week:1}).sort({weekday:1})
-// })
 
 
 ///////////////////
@@ -129,11 +120,9 @@ router.post("/", isAuthenticated, (req, res) => {
     vent:  req.body.vent
   }
 
-
   Log.create(newLog, (error, createdLog) => {
     res.redirect("/logs");
   })
-
 })
 
 
@@ -166,13 +155,10 @@ router.get("/chart/:week", isAuthenticated, (req,res) => {
       res.render("app/chart.ejs", {logs: weekLog, overview:false});
     }).sort({weekday:1})
   }
-
 })
 
 
-
-
-
-
-
+///////////////////
+// export module
+///////////////////
 module.exports = router;

@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/app.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Open+Sans&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-      <div class="sidebar">
-        <h1>"My gaDiary"</h1>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/app.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
+</head>
 
-      <div class="edit-entry edit-entry-login">
-
-
-            <form action="/sessions" method="POST">
-              <label for="username">Username</label>
-              <input type="text" name="username" /><br/>
-               <% if(failure === "nullUser"){ %>
-                <p class="warning">Invalid Username</p>
-               <% } %>
-
-              <label for="password">Password</label>
-              <input type="password" name="password" /><br/>
-              <% if(failure === "wrongPassword"){ %>
-               <p class="warning">Invalid Password</p>
-              <% } %>
-
-              <input class="btn-index btn-login" type="submit" value="Log In">
-            </form>
-
-
-
-
-
-      </div>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h1>"My gaDiary"</h1>
     </div>
 
+    <div class="edit-entry edit-entry-login">
+      <form action="/sessions" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" /><br/>
+        <% if(failure === "nullUser"){ %>
+          <p class="warning">Invalid Username</p>
+        <% } %>
 
-  </body>
+        <label for="password">Password</label>
+        <input type="password" name="password" /><br/>
+        <% if(failure === "wrongPassword"){ %>
+          <p class="warning">Invalid Password</p>
+        <% } %>
 
+        <input class="btn-index btn-login" type="submit" value="Log In">
+      </form>
+    </div>
+  </div>
+
+</body>
 </html>

@@ -1,6 +1,5 @@
 body{
   background: whitesmoke;
-  /* font-family: "DM Sans"; */
 }
 
 .container{
@@ -42,10 +41,7 @@ body{
   color: #735066;
   font-weight: bolder;
   transform: translateY(-0.7em);
-  /* box-shadow: 0 0.5em 0.5em -0.4em grey; */
 }
-
-
 
 .weeklystat{
   padding-top: 20px;
@@ -74,7 +70,6 @@ legend a:hover {
   color: #735066;
   font-weight: bolder;
   /* text-shadow: 2px 2px lightblue; */
-
 }
 
 .form-group{
@@ -98,7 +93,6 @@ header{
   width: 80vw;
   /* height: 70vw; */
   margin: 50px auto;
-  /* display: flex; */
   border-radius: 10px;
   box-shadow: 1px 1px 10px #bbb,
               -1px -1px 10px #bbb,
@@ -108,12 +102,9 @@ header{
 }
 
 .edit-entry {
-  /* width: 50%; */
   background: #f9f9f9;
   border-radius: 0 0 10px 10px;
   padding: 15px;
-  /* box-sizing: border-box; */
-  /* overflow: auto; */
 }
 
 .sidebar {
@@ -125,9 +116,6 @@ header{
   display: block;
   /* background-color: #ddd; */
 }
-
-
-
 .card-overview{
   border: none;
   background: none;
@@ -151,14 +139,11 @@ h1{
   height: 50px;
   background: #735066;
   box-shadow: 3px 3px lightblue;
-  /* font-family: 'Open Sans'; */
   font-size: 1.3em;
   color: whitesmoke;
   border: 0px;
   /* transition: 0.2s ease-in-out; */
   border-radius: 10px;
-
-  margin-left: 90%;
   text-decoration: none;
   text-align: center;
   margin: 0;
@@ -193,10 +178,7 @@ p{
 }
 
 .btn-feeling{
-  /* display: inline-block; */
-  /* box-sizing: border-box; */
   width: 20px;
-  /* height: 40px; */
   background: grey;
   color: white;
   padding: 5px;

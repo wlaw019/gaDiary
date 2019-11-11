@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <title></title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Open+Sans&display=swap" rel="stylesheet">
   </head>
+
   <body>
     <div class="container">
           <div class="sidebar">
@@ -49,7 +48,6 @@
                   $(".party").fadeTo("fast",1);
               }
             </script>
-
           </div>
 
           <div class="edit-entry">
@@ -90,18 +88,11 @@
 
                   <label for="descriptions">DESCRIPTIONS</label>
                   <input type="text" name="descriptions" value="<%=log.descriptions%>"/>
-
-
               </fieldset>
 
               <fieldset class="fieldset-block2">
-
-
                 <legend>FEELING</legend>
                   <label for="feeling">HOW ARE YOU FEELING ABOUT THE CONTENT?</label>
-
-
-
                       <div class="row-feeling">
                         <input type="checkbox" name="feeling1"
                         <% if(log.feeling === 1){ %>
@@ -153,8 +144,9 @@
                       </div>
 
                       <script>
-                        $('input:checkbox').on("click",function() {
-                          $('input[type="checkbox"]').not(this).prop('checked', false);
+                      // Select only one checkbox at a time and fade out irrelevant images
+                        $("input:checkbox").on("click",function() {
+                          $('input[type="checkbox"]').not(this).prop("checked", false);
 
                           // $('input:checkbox').on("click",function() {
                           //   $('input[type="checkbox"]').not(this).removeAttr('checked');
@@ -169,7 +161,7 @@
                           // });
                           $(".showcard").fadeTo("fast",0.33);
 
-                          switch ($(this).attr('name')){
+                          switch ($(this).attr("name")){
                             case "feeling1":
                               $(".cry").fadeTo("fast",1);
                                break;
@@ -186,10 +178,10 @@
                               $(".party").fadeTo("fast",1);
                           }
                         })
-
                       </script>
               </fieldset>
-</div>
+              </div>
+
               <fieldset>
                 <legend>DIARY</legend>
                   <label for="vent">VENT</label>
@@ -199,7 +191,7 @@
               <input type="submit" value="SUBMIT">
             </form>
           </div>
-        </div>
 
+      </div>
   </body>
 </html>

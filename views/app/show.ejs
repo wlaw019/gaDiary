@@ -3,13 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="/app.css"> -->
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Open+Sans&display=swap" rel="stylesheet">
   </head>
+
   <body>
     <div class="container">
       <div class="sidebar sidebar-show">
@@ -54,8 +52,10 @@
                 } %>
               </h4>
         </div>
+
         <p><%=log.classHrs%> hrs class + <%=log.homeworkHrs%> hrs homework</p>
         <p>=> <%=log.classHrs+log.homeworkHrs%> hrs work day</p>
+
       </div>
     </div>
 
@@ -93,16 +93,12 @@
       </div>
 
       <div class="btn-row">
-
-
-      <a href="/logs/<%=log.id%>/edit">EDIT</a>
-      <form action="/logs/<%=log.id%>?_method=DELETE" method="POST">
-        <input id="submit-show" type="submit" value="DELETE">
-      </form>
-
+        <a href="/logs/<%=log.id%>/edit">EDIT</a>
+        <form action="/logs/<%=log.id%>?_method=DELETE" method="POST">
+          <input id="submit-show" type="submit" value="DELETE">
+        </form>
       </div>
     </div>
-
     </div>
 
   </body>
