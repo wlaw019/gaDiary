@@ -14,7 +14,7 @@ https://wlawgadiary.herokuapp.com/
 
 * Heroku
 
-* Apple emoji images
+* Apple emoji images   
 https://emojipedia.org/apple/      
 
 ## Wire Framing
@@ -28,7 +28,7 @@ https://emojipedia.org/apple/
 * Google Fonts
 * Chart.js
 * Express
-```json
+```javascript
 "dependencies": {
   "bcrypt": "^3.0.6",
   "dotenv": "^8.2.0",
@@ -44,7 +44,7 @@ https://emojipedia.org/apple/
 Here are the steps taken to populate the index page
 
 ### Find logs based on username and sort them by week then weekday
-```js
+```javascript
 router.get("/", isAuthenticated, (req, res) => {
   Log.find({username:req.session.username}, (error, allLogs) => {
     res.render("app/index.ejs", {logs: allLogs, username:req.session.username});
@@ -53,7 +53,7 @@ router.get("/", isAuthenticated, (req, res) => {
 ```
 ### Overview fieldset
 A for loop to generate  
-```js
+```javascript
 // Calculates the Best week and Worst week
 weeklyHrsArray.push(weeklyHrs)
 
@@ -65,7 +65,7 @@ let feelingCry = logs.filter(obj => {
 
 ### Week fieldset
 A for loop to populate logs by week  
-```js
+```javascript
 // Filter logs into weeklyLogs
 for (var k = 1; k <= highestWeek; k++) {
   let weeklyLogs = logs.filter(obj => {
