@@ -22,9 +22,16 @@
             <form action="/sessions" method="POST">
               <label for="username">Username</label>
               <input type="text" name="username" /><br/>
+               <% if(failure === "nullUser"){ %>
+                <p class="warning">Invalid Username</p>
+               <% } %>
 
               <label for="password">Password</label>
               <input type="password" name="password" /><br/>
+              <% if(failure === "wrongPassword"){ %>
+               <p class="warning">Invalid Password</p>
+              <% } %>
+
               <input class="btn-index btn-login" type="submit" value="Log In">
             </form>
 
